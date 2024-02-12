@@ -11,7 +11,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     baseUrl: "www.mara-li.fr",
-    contentDir: "img",
+    ogImageDir: "img",
     ignorePatterns: ["private", "templates", ".obsidian", "hidden"],
     defaultDateType: "modified",
     theme: {
