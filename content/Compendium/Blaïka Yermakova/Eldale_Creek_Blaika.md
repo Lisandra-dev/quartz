@@ -32,6 +32,39 @@ Intelligence: 7
 Charisme: 10
 Pouvoir: 15
 ---
+---
+date: 2024-02-13
+aliases: [Blaïka Yermakova]
+category:
+  - Compendium
+  - Blaïka Yermakova
+share: true
+description: Adaptation de Blaïka Yermakova pour Eldale
+univers:
+  - Eldale Creek
+type:
+  - Fiche
+original:
+  - "[[Blaïka Yermakova|Blaïka Yermakova]]"
+image: ../../img/Mara FB Sketch August 2.png
+title: Eldale Creek
+name: Eldale_Creek_Blaika
+cssclasses:
+  - hr-title
+  - wiki-right
+  - rside-10
+disabled rules:
+  - heading-blank-lines
+total: ""
+Force: 15
+Endurance: 12
+Agilité: 9
+Constitution: 13
+Éducation: 7
+Intelligence: 7
+Charisme: 10
+Pouvoir: 15
+---
 
 > [!wiki]
 > # Blaïka Yermakova
@@ -171,7 +204,7 @@ Elle se retrouve donc à Eldale Creek au début de l'année 1981.
 > | **Pouvoir** ||
 > | **PV** |  |
 
-## Lycanthropie
+## ==Lycanthropie==
 
 Blaïka Yermakova est un loup-garou des steppes glacées d'Europe de l'Est. Tout comme la plupart des loups-garous (et ses cousins "sombres") elle possède une régénération accélérée et une force accrue, tout en possédant les faiblesses communes : la transformation forcée à la pleine lune et l'allergie à l'argent.
 
@@ -199,7 +232,7 @@ Elle perd (-3) d'éducation, d'**intelligence** et **charisme**
 - Les fortes odeurs chimiques 
 - Les ultrasons
 
-## Froid profond
+## ==Froid profond==
 
 Heureusement, les Frostwolves possèdent un second pouvoir : la capacité, naturelle, de contrôler la glace, que ce soit sous forme humaine que sous forme transformée.
 Ce pouvoir est lié à la transformation de l'eau en glace par l'abaissement des températures. De fait, ils sont plus froids (leur température moyenne se situe à environ 30°C) et dégage cette température basse en permanence. De même, ils sont capables de se balader sans difficulté dans des températures glaciales, jusqu'à -20°C. Et même lorsque les températures sont trop basses pour eux, ils prennent du plaisir.
