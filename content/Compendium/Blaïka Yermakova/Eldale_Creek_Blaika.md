@@ -91,6 +91,8 @@ Généralement, la femme porte son uniforme de policière, bien qu'elle porte pa
 En dehors du travail, elle va porter des chemises blanches, qui accentuent parfaitement ses formes musclées et dont elle va retrousser les manches (ce qui dévoile ses cicatrices). Si elle ne porte pas de cravate, elle préfèrera des nœuds. Elle aime porter des pantalons droits (elle évite les jeans, qu'elle trouve lourd et inconfortable) en tissus, souvent noir ou gris, et en de très rares occasions, des jupes qui dépassent de ses genoux. Vous comprendrez souvent qu'elle n'est pas très féminine et porte surtout des vêtements masculins (surtout qu'avec son format, il est plus facile pour elle de trouver des vêtements d'homme que femme). Il lui arrive aussi de porter des tailleurs, mais ce n'est pas ce qu'elle préfère.
 Elle n'aime pas spécialement se maquiller, mais le fait au minimum, avec simplement un fard sombre qui accentue ses yeux bleus, et un fond de teint pour effacer ses cernes.
 
+Pour finir, en termes de chaussure, Blaïka préfèrera des bottes en cuirs, souvent lourdes, proches des Dr. Martens. En été, elle portera des sandales (hors travail) ou des chaussures fines. Généralement, ses chaussures seront noires ou marron. On peut noter que cela ne la gêne pas de se balader pied nus.
+
 # Profil psychologique
 ---
 > [!wiki|tbl left -bot]
