@@ -32,7 +32,7 @@ Charisme: 10
 Pouvoir: 15
 ---
 
-> [!wiki]
+> [!borderwiki]
 >
 > # Blaïka Yermakova
 >
