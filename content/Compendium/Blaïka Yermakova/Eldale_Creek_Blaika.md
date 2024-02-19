@@ -1,7 +1,6 @@
 ---
 date: 2024-02-13
-aliases:
-  - Blaïka Yermakova
+aliases: [Blaïka Yermakova]
 category:
   - Compendium
   - Blaïka Yermakova
@@ -22,6 +21,7 @@ cssclasses:
   - rside-10
 disabled rules:
   - heading-blank-lines
+total: ""
 Force: 15
 Endurance: 12
 Agilité: 9
