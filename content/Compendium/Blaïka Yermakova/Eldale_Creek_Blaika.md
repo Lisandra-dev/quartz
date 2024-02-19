@@ -22,6 +22,40 @@ cssclasses:
   - rside-10
 disabled rules:
   - heading-blank-lines
+total: "`= 88- (this.Force + this.Endurance + this.Agilité + this.Constitution + this.Éducation + this.Intelligence+this.Charisme+this.Pouvoir)`"
+Force: 15
+Endurance: 12
+Agilité: 9
+Constitution: 13
+Éducation: 7
+Intelligence: 7
+Charisme: 10
+Pouvoir: 15
+---
+---
+date: 2024-02-13
+aliases: [Blaïka Yermakova]
+category:
+  - Compendium
+  - Blaïka Yermakova
+share: true
+description: Adaptation de Blaïka Yermakova pour Eldale
+univers:
+  - Eldale Creek
+type:
+  - Fiche
+original:
+  - "[[Blaïka Yermakova|Blaïka Yermakova]]"
+image: ../../img/Eldale Creek-Blaïka.png
+title: Eldale Creek
+name: Eldale_Creek_Blaika
+cssclasses:
+  - hr-title
+  - wiki-right
+  - rside-10
+disabled rules:
+  - heading-blank-lines
+total: "`= 88- (this.Force + this.Endurance + this.Agilité + this.Constitution + this.Éducation + this.Intelligence+this.Charisme+this.Pouvoir)`"
 Force: 15
 Endurance: 12
 Agilité: 9
@@ -167,15 +201,15 @@ Elle se retrouve donc à Eldale Creek au début de l'année 1981.
 >
 > |        |     |
 > | ----------- | --- |
-> | **Force** |   |
-> | **Endurance** |  |
-> |**Agilité** |  |
-> |**Constitution** |  |
-> | **Éducation** |  |
-> | **Intelligence** | |
-> | **Charisme** | |
-> | **Pouvoir** ||
-> | **PV** |  |
+> | **Force** |  `= this.Force` |
+> | **Endurance** | `= this.Endurance` |
+> |**Agilité** | `=this.Agilité` |
+> |**Constitution** | `= this.Constitution` |
+> | **Éducation** | `= this.Éducation` |
+> | **Intelligence** |`= this.Intelligence` |
+> | **Charisme** |`= this.Charisme` |
+> | **Pouvoir** |`= this.Pouvoir`|
+> | **PV** | `= 2*(this.Endurance)+this.Force` |
 
 ## ==Lycanthropie==
 
