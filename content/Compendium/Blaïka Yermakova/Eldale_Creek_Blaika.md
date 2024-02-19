@@ -33,7 +33,7 @@ Charisme: 10
 Pouvoir: 15
 dataview: true
 ---
-> [!wiki]
+> [!borderwiki]
 > # Blaïka Yermakova
 > ![[../../img/Eldale Creek-Blaïka.png|Blaïka portrait]]
 >
@@ -63,7 +63,7 @@ Elle a des yeux légèrement en amande, bleus et son visage possède quelques ta
 
 Elle possède un visage harmonieux, un petit nez (marqué par une petite cicatrice au niveau de son arête) et des lèvres charnues et ses longs cils attirent le regard sur ses yeux.
 
-> [!wiki]
+> [!lwiki]
 > ![[../../img/Mara FB Sketch August 2.png|Mara FB Sketch August 2.png]]
 >
 > |||
