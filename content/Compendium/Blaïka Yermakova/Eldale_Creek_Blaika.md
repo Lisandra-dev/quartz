@@ -13,7 +13,7 @@ type:
   - Fiche
 original:
   - "[[Blaïka Yermakova|Blaïka Yermakova]]"
-image: Mara FB Sketch August 2.png
+image: Eldale Creek-Blaïka.png
 title: Eldale Creek
 name: Eldale_Creek_Blaika
 cssclasses:
@@ -46,7 +46,7 @@ type:
   - Fiche
 original:
   - "[[Blaïka Yermakova|Blaïka Yermakova]]"
-image: ../../img/Mara FB Sketch August 2.png
+image: ../../img/Eldale Creek-Blaïka.png
 title: Eldale Creek
 name: Eldale_Creek_Blaika
 cssclasses:
@@ -156,10 +156,17 @@ Elle espère fonder sa propre meute, bien qu'elle considère ne pas avoir les é
 Par contre, elle ne cache pas ses émotions, a tendance à être très franche, déteste les hypocrites et exprime tout haut ses émotions, même si c'est à l'encontre de ses supérieurs. Elle s'agace facilement, et n'a pas énormément de patience. Souvent, quand elle se retient, elle a tendance à claquer sa langue et se pincer les lèvres.
 Elle éprouve une forte rancœur à l'égard du gouvernement soviétique, l'URSS et les communistes, qu'elle considère comme des idéologues stupides. Elle ne pardonnera jamais ce qu'ils ont fait à son territoire, sa famille, à la Sibérie et au monde en général. Bien qu'elle ait tendance à préférer les États-Unis (auquel elle s'est attachée), elle déteste cette manie très impérialiste de répondre à tout par des bombes et des menaces, et ne soutient pas les différentes guerres qui font exactement ce que la Russie a fait avec les loups. Mais elle apprécie avoir la liberté de pouvoir critiquer son pays, la possibilité d'être propriétaire et de pouvoir posséder une arme.
 
-## Passion & Hobbies
+## Forme lupine
+
+Sous forme de louve, sa personnalité est… Le contraire de Blaïka.
+
+Elle est déjà beaucoup moins attentive (presque bête) et bien plus proche d'un chien excité et curieux que d'un loup. Elle aura tendance à se rapprocher des humains, à vouloir jouer avec eux que ce soit au ballon, frisbee ou simple bâton.
+Elle a un peu honte de cette forme lupine qui est parfois un peu trop excitée pour son propre bien et qui peut se mettre en danger par curiosité, en s'approchant des humains. Heureusement, cela reste un loup avec une certaine sensibilité et il évitera quand même les humains qui ont peur. Mais jamais Blaïka-loup ne se montrera agressive envers qui que ce soit de prime abord et elle n'a jamais attaqué d'humain (sans qu'il l'attaque en premier).
+
+# Passion & Hobbies
 - Les balades dans les grandes étendues sauvages
 - Lire
-## Peur et phobie : Feu
+# Peur et phobie : Feu
 # Biographie
 ---
 
