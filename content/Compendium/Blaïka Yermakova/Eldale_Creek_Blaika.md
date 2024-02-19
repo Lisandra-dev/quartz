@@ -21,7 +21,7 @@ cssclasses:
   - rside-10
 disabled rules:
   - heading-blank-lines
-total: "`= 88- (this.Force + this.Endurance + this.Agilité + this.Constitution + this.Éducation + this.Intelligence+this.Charisme+this.Pouvoir)`"
+total: ""
 Force: 15
 Endurance: 12
 Agilité: 9
@@ -167,15 +167,15 @@ Elle se retrouve donc à Eldale Creek au début de l'année 1981.
 >
 > |        |     |
 > | ----------- | --- |
-> | **Force** |  `= this.Force` |
-> | **Endurance** | `= this.Endurance` |
-> |**Agilité** | `=this.Agilité` |
-> |**Constitution** | `= this.Constitution` |
-> | **Éducation** | `= this.Éducation` |
-> | **Intelligence** |`= this.Intelligence` |
-> | **Charisme** |`= this.Charisme` |
-> | **Pouvoir** |`= this.Pouvoir`|
-> | **PV** | `= 2*(this.Endurance)+this.Force` |
+> | **Force** |   |
+> | **Endurance** |  |
+> |**Agilité** |  |
+> |**Constitution** |  |
+> | **Éducation** |  |
+> | **Intelligence** | |
+> | **Charisme** | |
+> | **Pouvoir** ||
+> | **PV** |  |
 
 ## ==Lycanthropie==
 
