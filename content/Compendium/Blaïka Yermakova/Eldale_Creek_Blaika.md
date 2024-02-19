@@ -62,7 +62,7 @@ Elle a des yeux légèrement en amande, bleus et son visage possède quelques ta
 
 Elle possède un visage harmonieux, un petit nez (marqué par une petite cicatrice au niveau de son arête) et des lèvres charnues et ses longs cils attirent le regard sur ses yeux.
 
-> [!wiki|tbl left no-border-content -bot]
+> [!wiki]
 > ![[../../img/Mara FB Sketch August 2.png|Mara FB Sketch August 2.png]]
 >
 > |||
@@ -94,7 +94,7 @@ Pour finir, en termes de chaussure, Blaïka préfèrera des bottes en cuirs, sou
 
 # Profil psychologique
 ---
-> [!wiki|tbl left -bot]
+> [!wiki]
 > ### Identité
 > **Civilité** : Célibataire
 > **Métier** : Policière
@@ -163,7 +163,7 @@ Elle se retrouve donc à Eldale Creek au début de l'année 1981.
 
 # Pouvoirs
 ---
-> [!infobox|tbl -bot no-border-table side]
+> [!infobox]
 >
 > |        |     |
 > | ----------- | --- |
