@@ -1,7 +1,6 @@
 ---
 date: 2024-02-13
-aliases:
-  - Blaïka Yermakova
+aliases: [Blaïka Yermakova]
 category:
   - Compendium
   - Blaïka Yermakova
