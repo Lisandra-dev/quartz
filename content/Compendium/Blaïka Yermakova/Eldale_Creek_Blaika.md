@@ -34,7 +34,7 @@ Pouvoir: 15
 dataview: true
 ---
 
-> [wiki]
+> [!wiki]
 > # Blaïka Yermakova
 > ![[../../img/Eldale Creek-Blaïka.png|Blaïka portrait]]
 >
@@ -64,7 +64,7 @@ Elle a des yeux légèrement en amande, bleus et son visage possède quelques ta
 
 Elle possède un visage harmonieux, un petit nez (marqué par une petite cicatrice au niveau de son arête) et des lèvres charnues et ses longs cils attirent le regard sur ses yeux.
 
-> [wiki]
+> [!lwiki]
 > ![[../../img/Mara FB Sketch August 2.png|Mara FB Sketch August 2.png]]
 >
 > |||
@@ -96,7 +96,7 @@ Pour finir, en termes de chaussure, Blaïka préfèrera des bottes en cuirs, sou
 
 # Profil psychologique
 ---
-> [wiki]
+> [!wiki]
 > ### Identité
 > **Civilité** : Célibataire
 > **Métier** : Policière
@@ -165,7 +165,7 @@ Elle se retrouve donc à Eldale Creek au début de l'année 1981.
 
 # Pouvoirs
 ---
-> [infobox]
+> [!infobox]
 >
 > |        |     |
 > | ----------- | --- |
