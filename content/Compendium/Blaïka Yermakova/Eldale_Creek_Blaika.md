@@ -33,7 +33,6 @@ Charisme: 10
 Pouvoir: 15
 dataview: true
 ---
-
 > [!wiki]
 > # Blaïka Yermakova
 > ![[../../img/Eldale Creek-Blaïka.png|Blaïka portrait]]
