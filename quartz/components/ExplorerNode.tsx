@@ -15,7 +15,7 @@ import { IconFolderOptions } from "./types"
 type OrderEntries = "sort" | "filter" | "map"
 
 export interface Options {
-  title: string
+  title?: string
   folderDefaultState: "collapsed" | "open"
   folderClickBehavior: "collapse" | "link"
   useSavedState: boolean
