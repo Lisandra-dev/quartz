@@ -1,5 +1,11 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  },
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "extended": "true"
@@ -8,12 +14,6 @@
   "forwardPorts": [
     8080
   ],
-  "postCreateCommand": "npm install",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "davidanson.vscode-markdownlint"
-      ]
-    }
-  }
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "postCreateCommand": "npm install"
 }
