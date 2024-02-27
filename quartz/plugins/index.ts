@@ -1,29 +1,29 @@
-import { StaticResources } from "../util/resources"
-import { FilePath, FullSlug } from "../util/path"
-import { BuildCtx } from "../util/ctx"
+import { BuildCtx } from "../util/ctx";
+import { FilePath, FullSlug } from "../util/path";
+import { StaticResources } from "../util/resources";
 
 export function getStaticResourcesFromPlugins(ctx: BuildCtx) {
-  const staticResources: StaticResources = {
-    css: [],
-    js: [],
-  }
+	const staticResources: StaticResources = {
+		css: [],
+		js: [],
+	};
 
-  for (const transformer of ctx.cfg.plugins.transformers) {
-    const res = transformer.externalResources ? transformer.externalResources(ctx) : {}
-    if (res?.js) {
-      staticResources.js.push(...res.js)
-    }
-    if (res?.css) {
-      staticResources.css.push(...res.css)
-    }
-  }
+	for (const transformer of ctx.cfg.plugins.transformers) {
+		const res = transformer.externalResources ? transformer.externalResources(ctx) : {};
+		if (res?.js) {
+			staticResources.js.push(...res.js);
+		}
+		if (res?.css) {
+			staticResources.css.push(...res.css);
+		}
+	}
 
-  return staticResources
+	return staticResources;
 }
 
-export * from "./transformers"
-export * from "./filters"
-export * from "./emitters"
+export * from "./emitters";
+export * from "./filters";
+export * from "./transformers";
 
 declare module "vfile" {
   // inserted in processors.ts

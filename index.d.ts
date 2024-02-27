@@ -1,5 +1,5 @@
 declare module "*.scss" {
-  const content: string
+  const content: string;
   export = content
 }
 
@@ -9,4 +9,4 @@ interface CustomEventMap {
   themechange: CustomEvent<{ theme: "light" | "dark" }>
 }
 
-declare const fetchData: Promise<ContentIndex>
+declare const fetchData: Promise<ContentIndex>;
