@@ -93,6 +93,7 @@ declare module "vfile" {
         draft: boolean
         enableToc: string
         cssclasses: string[]
+		order: number
       }>
   }
 }
