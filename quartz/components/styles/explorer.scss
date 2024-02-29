@@ -163,6 +163,11 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   vertical-align: middle;
 }
 
+#explorer-content ul li > a[data-hasicon="true"]:has(.file-title-icon) {
+  position: relative;
+  left: -0.25em;
+}
+
 .folder-title-icon > svg {
   margin-right: 5px;
   cursor: pointer;
