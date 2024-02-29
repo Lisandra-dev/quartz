@@ -17,7 +17,7 @@ const config: QuartzConfig = {
 		},
 		baseUrl: "www.mara-li.fr",
 		ogImageDir: "_assets/img",
-		ignorePatterns: ["private", "templates", ".obsidian", "hidden"],
+		ignorePatterns: ["private", "templates", ".obsidian"],
 		defaultDateType: "modified",
 		theme: {
 			cdnCaching: true,

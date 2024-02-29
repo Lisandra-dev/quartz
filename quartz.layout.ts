@@ -21,6 +21,11 @@ const sortFn = (a: FileNode, b: FileNode) => {
 	return 1;
 };
 
+const secretPage: Set<string> =  new Set(["hidden"])
+
+const filterFn = (node: FileNode) => {
+	return !secretPage.has(node.name)
+}
 
 export const sharedPageComponents: SharedLayout = {
 	head: Component.Head(),
@@ -30,7 +35,8 @@ export const sharedPageComponents: SharedLayout = {
 				folderDefaultState: "open",
 				folderClickBehavior: "link",
 				iconSettings: iconsOptions,
-				sortFn
+				sortFn,
+				filterFn
 			}),
 		),
 		Component.MobileOnly(Component.PageTitle()),
@@ -65,6 +71,7 @@ export const defaultContentPageLayout: PageLayout = {
 				title: "",
 				iconSettings: iconsOptions,
 				sortFn,
+				filterFn
 			}),
 		),
 	],
