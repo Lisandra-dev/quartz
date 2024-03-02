@@ -275,20 +275,18 @@ body {
     }
 
     p:not(.callout-title) {
-      display: flex;
-      margin-block-start: 0;
-      margin-block-end: 0;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(19vw, 1fr));
+      grid-template-rows: repeat(1, 10vw);
+      grid-gap: 15px;
     }
 
     img {
-      display: table-cell;
-      vertical-align: middle;
       padding: 1px;
-      max-height: 35vh;
-
-      &[alt="wfull"] {
-        max-height: unset;
+      margin:0;
+      
+      &:hover {
+        transform: scaleX(2) scaleY(2);
       }
     }
 
