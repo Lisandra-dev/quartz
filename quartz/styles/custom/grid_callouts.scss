@@ -277,7 +277,7 @@ body {
     p:not(.callout-title) {
       display: grid;
       grid-template-columns: repeat(2, minmax(19vw, 1fr));
-      grid-template-rows: repeat(1, 10vw);
+      grid-template-rows: repeat(1, 1fr);
       grid-gap: 15px;
     }
 
