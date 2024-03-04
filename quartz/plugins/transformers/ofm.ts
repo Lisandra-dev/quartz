@@ -1,23 +1,22 @@
-import { slug as slugAnchor } from "github-slugger";
-import { Element, Literal, Root as HtmlRoot } from "hast";
-import { toHtml } from "hast-util-to-html";
-import { BlockContent, Code,DefinitionContent, Html, Paragraph, Root } from "mdast";
-import { findAndReplace as mdastFindReplace,ReplaceFunction } from "mdast-util-find-and-replace";
-import { PhrasingContent } from "mdast-util-find-and-replace/lib";
-import { toHast } from "mdast-util-to-hast";
-import path from "path";
-import rehypeRaw from "rehype-raw";
-import { PluggableList } from "unified";
-import { SKIP, visit } from "unist-util-visit";
-
+import { QuartzTransformerPlugin } from "../types"
+import { Root, Html, BlockContent, DefinitionContent, Paragraph, Code } from "mdast"
+import { Element, Literal, Root as HtmlRoot } from "hast"
+import { ReplaceFunction, findAndReplace as mdastFindReplace } from "mdast-util-find-and-replace"
+import { slug as slugAnchor } from "github-slugger"
+import rehypeRaw from "rehype-raw"
+import { SKIP, visit } from "unist-util-visit"
+import path from "path"
+import { JSResource } from "../../util/resources"
 // @ts-ignore
 import calloutScript from "../../components/scripts/callout.inline.ts";
 // @ts-ignore
-import checkboxScript from "../../components/scripts/checkbox.inline.ts";
-import { capitalize } from "../../util/lang";
-import { FilePath, pathToRoot, slugifyFilePath,slugTag } from "../../util/path";
-import { JSResource } from "../../util/resources";
-import { QuartzTransformerPlugin } from "../types";
+import checkboxScript from "../../components/scripts/checkbox.inline.ts"
+import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
+import { toHast } from "mdast-util-to-hast"
+import { toHtml } from "hast-util-to-html"
+import { PhrasingContent } from "mdast-util-find-and-replace/lib"
+import { capitalize } from "../../util/lang"
+import { PluggableList } from "unified"
 
 export interface Options {
   comments: boolean
@@ -528,22 +527,45 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
 										last.value = last.value.slice(0, -matches[0].length);
 										const block = matches[0].slice(1);
 
-										if (!Object.keys(file.data.blocks!).includes(block)) {
-											node.properties = {
-												...node.properties,
-												id: block,
-											};
-                      file.data.blocks![block] = node;
-										}
-									}
-								}
-							}
-						});
+                    if (last.value === "") {
+                      // this is an inline block ref but the actual block
+                      // is the previous element above it
+                      let idx = (index ?? 1) - 1
+                      while (idx >= 0) {
+                        const element = parent?.children.at(idx)
+                        if (!element) break
+                        if (element.type !== "element") {
+                          idx -= 1
+                        } else {
+                          if (!Object.keys(file.data.blocks!).includes(block)) {
+                            element.properties = {
+                              ...element.properties,
+                              id: block,
+                            }
+                            file.data.blocks![block] = element
+                          }
+                          return
+                        }
+                      }
+                    } else {
+                      // normal paragraph transclude
+                      if (!Object.keys(file.data.blocks!).includes(block)) {
+                        node.properties = {
+                          ...node.properties,
+                          id: block,
+                        }
+                        file.data.blocks![block] = node
+                      }
+                    }
+                  }
+                }
+              }
+            })
 
-						file.data.htmlAst = tree;
-					};
-				});
-			}
+            file.data.htmlAst = tree
+          }
+        })
+      }
 
 			if (opts.enableYouTubeEmbed) {
 				plugins.push(() => {
