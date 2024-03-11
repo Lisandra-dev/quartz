@@ -10,13 +10,22 @@ li.section-li {
   margin-bottom: 1em;
 
   & > .section {
-    display: grid;
-    grid-template-columns: 6em 3fr 1fr;
+    // display: grid;
+    // grid-template-columns: 6em 3fr 1fr;
 
     @media all and (max-width: $mobileBreakpoint) {
       & > .tags {
         display: none;
       }
+    }
+
+    & > .desc > .meta-container {
+      display: grid;
+      grid-template-columns: 10% 90%;
+    }
+
+    & > .desc > .meta-desc {
+      grid-column: span 2 / span 2;
     }
 
     & > .desc > h3 > a {

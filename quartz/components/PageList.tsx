@@ -1,8 +1,9 @@
 import { GlobalConfiguration } from "../cfg";
 import { QuartzPluginData } from "../plugins/vfile";
-import { FullSlug, resolveRelative } from "../util/path";
+import { FullSlug, resolveRelative, sluggify } from "../util/path";
 import { Date, getDate } from "./Date";
 import { QuartzComponent, QuartzComponentProps } from "./types";
+import fs from 'fs';
 
 export function byDateAndAlphabetical(
 	cfg: GlobalConfiguration,
@@ -38,9 +39,20 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
 	return (
 		<ul class="section-ul">
 			{list.map((page) => {
-				const title = page.frontmatter?.title;
+				let title = page.frontmatter?.title;
+				if (title === "index") {
+					const path = page.slug?.split("/");
+					title = path?.[path.length - 2].replace("-", " ") ?? "index";
+				}
 				const tags = page.frontmatter?.tags ?? [];
-
+				const description = page.frontmatter?.description;
+				let image : string | undefined = page.frontmatter?.image as string ?? undefined ;
+				if (cfg.ogImageDir) {
+					image = `${cfg.ogImageDir}/${image}`
+					image = resolveRelative(fileData.slug!, image as FullSlug);
+					//check if image exists
+					image = fs.existsSync(image) ? image : undefined;
+				}
 				return (
 					<li class="section-li">
 						<div class="section">
@@ -55,6 +67,19 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
 										{title}
 									</a>
 								</h3>
+								<div class="meta-container">
+									<div>
+										{image && (
+											<img
+												class="meta-image"
+												src={sluggify(image)}
+												width="100"
+												height="100"
+											/>
+										)}
+									</div>
+									<p class="meta-desc">{description}</p>
+								</div>								
 							</div>
 							<ul class="tags">
 								{tags.map((tag) => (
