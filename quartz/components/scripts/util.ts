@@ -1,3 +1,8 @@
+import { Data } from "vfile";
+
+import { GlobalConfiguration } from "../../cfg";
+import { sluggify } from "../../util/path";
+
 export function registerEscapeHandler(outsideContainer: HTMLElement | null, cb: () => void) {
 	if (!outsideContainer) return;
 	function click(this: HTMLElement, e: HTMLElementEventMap["click"]) {
@@ -22,4 +27,15 @@ export function removeAllChildren(node: HTMLElement) {
 	while (node.firstChild) {
 		node.removeChild(node.firstChild);
 	}
+}
+
+export function getMetaImage(cfg: GlobalConfiguration, fileData: Data) {
+	const ogImagePath = `https://${cfg.baseUrl}/static/og-image.png`;
+	if (cfg.ogImageDir) {
+		const contentDir = `https://${cfg.baseUrl}/${cfg.ogImageDir}/`;
+		return fileData?.frontmatter?.image
+			? sluggify(`${contentDir}${(fileData.frontmatter.image as string).trim()}`)
+			: `https://${cfg.baseUrl}/static/og-image.png`;
+	}
+	return ogImagePath;
 }
