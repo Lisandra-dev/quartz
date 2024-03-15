@@ -177,7 +177,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
 					const anchor = rawHeader?.trim().replace(/^#+/, "");
 					const blockRef = anchor?.startsWith("^") ? "^" : "";
 					const displayAnchor = anchor ? `#${blockRef}${slugAnchor(anchor)}` : "";
-					let displayAlias = rawAlias ?? rawHeader?.replace("#", "|") ?? "";
+					const displayAlias = rawAlias ?? rawHeader?.replace("#", "|") ?? "";
 					const embedDisplay = value.startsWith("!") ? "!" : "";
 
 					if (rawFp?.match(externalLinkRegex)) {
@@ -185,9 +185,9 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
 					}
 
 					//transform `[[note#^block_ref|^block_ref]]` to `[[note#^block_ref\|^block_ref]]`, display correctly in table.
-					if (displayAlias && displayAlias.startsWith("|")) {
-						displayAlias = `\\${displayAlias}`;
-					}
+					// if (displayAlias && displayAlias.startsWith("|")) {
+					// 	displayAlias = `\\${displayAlias}`;
+					// }
 
 					return `${embedDisplay}[[${fp}${displayAnchor}${displayAlias}]]`;
 				});
