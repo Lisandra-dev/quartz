@@ -21,6 +21,7 @@ const config: QuartzConfig = {
 		defaultDateType: "modified",
 		theme: {
 			cdnCaching: true,
+			fontOrigin: "googleFonts",
 			typography: {
 				header: "Karla",
 				body: "IBM Plex Sans",

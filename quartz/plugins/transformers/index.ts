@@ -1,3 +1,4 @@
+export { Citations } from "./citations";
 export { Description } from "./description";
 export { FrontMatter } from "./frontmatter";
 export { GitHubFlavoredMarkdown } from "./gfm";
