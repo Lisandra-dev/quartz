@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = https://github.com/Lisandra-dev/owlly-lab-content.git

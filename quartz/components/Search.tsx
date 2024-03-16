@@ -2,6 +2,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import style from "./styles/search.scss"
 // @ts-ignore
 import script from "./scripts/search.inline"
+import { i18n } from "../i18n/i18next"
 import { classNames } from "../util/lang"
 import { i18n } from "../i18n"
 

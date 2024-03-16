@@ -1,19 +1,28 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { classNames } from "../util/lang"
+import { FileTitleIcon,IconFolderOptions  } from "../plugins/components/FileIcons";
+import { classNames } from "../util/lang";
+import { QuartzComponentConstructor, QuartzComponentProps } from "./types";
 
-const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  const title = fileData.frontmatter?.title
-  if (title) {
-    return <h1 class={classNames(displayClass, "article-title")}>{title}</h1>
-  } else {
-    return null
+export default ((opts?: Partial<IconFolderOptions>) => {
+	function ArticleTitle(props: QuartzComponentProps) {
+		const { displayClass, fileData } = props;
+		const title = fileData.frontmatter?.title;
+		const iconType = (fileData.frontmatter?.icon as string) || opts?.default?.file;
+		if (title) {
+			if (!opts?.rootIconFolder || !iconType) {
+				return <h1 class={classNames(displayClass, "article-title")}>{title}</h1>;
+			}
+			return (
+				<FileTitleIcon displayClass={displayClass} opts={opts} iconType={iconType} title={title} />
+			);
+		} else {
+			return null;
+		}
+	}
+
+	ArticleTitle.css = `
+  .article-title {
+    margin: 2rem 0 0 0;
   }
-}
-
-ArticleTitle.css = `
-.article-title {
-  margin: 2rem 0 0 0;
-}
-`
-
-export default (() => ArticleTitle) satisfies QuartzComponentConstructor
+  `;
+	return ArticleTitle;
+}) satisfies QuartzComponentConstructor;

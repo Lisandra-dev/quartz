@@ -1,9 +1,10 @@
-import { ComponentType, JSX } from "preact"
-import { StaticResources } from "../util/resources"
-import { QuartzPluginData } from "../plugins/vfile"
-import { GlobalConfiguration } from "../cfg"
-import { Node } from "hast"
-import { BuildCtx } from "../util/ctx"
+import { Node } from "hast";
+import { ComponentType, JSX } from "preact";
+
+import { GlobalConfiguration } from "../cfg";
+import { QuartzPluginData } from "../plugins/vfile";
+import { BuildCtx } from "../util/ctx";
+import { StaticResources } from "../util/resources";
 
 export type QuartzComponentProps = {
   ctx: BuildCtx
@@ -15,8 +16,8 @@ export type QuartzComponentProps = {
   allFiles: QuartzPluginData[]
   displayClass?: "mobile-only" | "desktop-only"
 } & JSX.IntrinsicAttributes & {
-    [key: string]: any
-  }
+  [key: string]: any
+}
 
 export type QuartzComponent = ComponentType<QuartzComponentProps> & {
   css?: string
@@ -27,3 +28,4 @@ export type QuartzComponent = ComponentType<QuartzComponentProps> & {
 export type QuartzComponentConstructor<Options extends object | undefined = undefined> = (
   opts: Options,
 ) => QuartzComponent
+
