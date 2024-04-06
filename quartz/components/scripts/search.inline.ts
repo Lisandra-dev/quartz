@@ -22,6 +22,7 @@ const index = new FlexSearch.Document<Item>({
 	encode: encoder,
 	document: {
 		id: "id",
+		tag: "tags",
 		index: [
 			{
 				field: "title",
