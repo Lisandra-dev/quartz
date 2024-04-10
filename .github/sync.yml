@@ -8,4 +8,5 @@ group:
           ci.yaml
     repos: |
       ObsidianPublisher/Publisher-Quartz
+      ObsidianPublisher/docs
 
