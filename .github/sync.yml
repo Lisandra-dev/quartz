@@ -1,6 +1,7 @@
 group:
   - files:
       - quartz/
+      - package.json
       - source: .github/workflows/
         dest: .github/workflows/
         exclude: |
@@ -9,4 +10,3 @@ group:
     repos: |
       ObsidianPublisher/Publisher-Quartz
       ObsidianPublisher/docs
-
