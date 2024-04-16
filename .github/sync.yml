@@ -2,6 +2,7 @@ group:
   - files:
       - quartz/
       - package.json
+      - package-lock.json
       - source: .github/workflows/
         dest: .github/workflows/
         exclude: |
