@@ -5,6 +5,8 @@ on:
     paths:
       - quartz/**
       - .github/workflows/**.yml
+      - package.json
+      - package-lock.json
 
 jobs:
   sync:
