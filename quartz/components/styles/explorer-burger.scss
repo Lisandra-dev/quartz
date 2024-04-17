@@ -58,19 +58,19 @@
       //blur the background
       //top: 10dvh;
       filter: blur(0);
-      transition: filter 500ms;
+      transition: all 500ms;
     }
 
     &.collapsed li {
       filter: blur(150px);
       //transition: all 500ms;
-      transition: filter 500ms;
+      //transition: all 500ms;
     }
 
     &:not(.collapsed) li {
       filter: blur(0);
       //transition: all 500ms;
-      transition: filter 500ms;
+      //transition: all 500ms;
     }
 
     /* ul.overflow {
@@ -85,7 +85,8 @@
       position: absolute;
       max-height: max-content !important;
       z-index: 100;
-      //transition: all 500ms;
+      filter: blur(150px);
+      transition: all 500ms linear;
     }
   }
 
