@@ -48,7 +48,6 @@
   #explorer-content {
     width: 90vw;
     background-color: var(--light);
-    height: 100vh;
     position: absolute;
     z-index: 100;
     max-height: max-content !important;
@@ -79,15 +78,6 @@
         stroke: var(--dark);
       }
     }
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 
