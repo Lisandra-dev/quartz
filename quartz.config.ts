@@ -23,8 +23,8 @@ const config: QuartzConfig = {
 			cdnCaching: true,
 			fontOrigin: "googleFonts",
 			typography: {
-				header: "Karla",
-				body: "IBM Plex Sans",
+				header: "Overpass",
+				body: "Karla",
 				code: "Ubuntu Mono",
 			},
 			colors: {
@@ -75,7 +75,7 @@ const config: QuartzConfig = {
 		filters: [Plugin.RemoveDrafts()],
 		emitters: [
 			Plugin.AliasRedirects(),
-			Plugin.ComponentResources({ fontOrigin: "googleFonts" }),
+			Plugin.ComponentResources(),
 			Plugin.ContentPage(),
 			Plugin.FolderPage(),
 			Plugin.TagPage(),
