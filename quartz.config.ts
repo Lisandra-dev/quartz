@@ -23,7 +23,7 @@ const config: QuartzConfig = {
 			cdnCaching: true,
 			fontOrigin: "googleFonts",
 			typography: {
-				header: "Overpass",
+				header: "Sora",
 				body: "Karla",
 				code: "Ubuntu Mono",
 			},

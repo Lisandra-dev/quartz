@@ -1,9 +1,11 @@
+import path from "path";
 import { GlobalConfiguration } from "../cfg";
 import { QuartzPluginData } from "../plugins/vfile";
-import { FullSlug, resolveRelative, sluggify } from "../util/path";
+import { FilePath, FullSlug, pathToRoot, resolveRelative, sluggify, slugifyFilePath } from "../util/path";
 import { Date, getDate } from "./Date";
 import { QuartzComponent, QuartzComponentProps } from "./types";
 import fs from 'fs';
+import { pathToFileURL } from "url";
 
 export function byDateAndAlphabetical(
 	cfg: GlobalConfiguration,
@@ -47,20 +49,16 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
 				const tags = page.frontmatter?.tags ?? [];
 				const description = page.frontmatter?.description;
 				let image : string | undefined = page.frontmatter?.image as string ?? undefined ;
-				if (cfg.ogImageDir) {
-					image = `${cfg.ogImageDir}/${image}`
-					image = resolveRelative(fileData.slug!, image as FullSlug);
-					//check if image exists
-					image = fs.existsSync(image) ? image : undefined;
+				if (cfg.ogImageDir && image) {
+					const imageFromOg = `${cfg.ogImageDir}/${image}`
+					const imageRelative = resolveRelative(fileData.slug!, imageFromOg as FullSlug);
+					//verify if image exists in `content/_assets/img` folder
+					image = fs.existsSync(path.resolve(`content/${imageFromOg}`)) ? imageRelative : undefined;
 				}
 				return (
 					<li class="section-li">
 						<div class="section">
-							{page.dates && (
-								<p class="meta">
-									<Date date={getDate(cfg, page)!} locale={cfg.locale} />
-								</p>
-							)}
+							
 							<div class="desc">
 								<h3>
 									<a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">
@@ -73,13 +71,13 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
 											<img
 												class="meta-image"
 												src={sluggify(image)}
-												width="100"
-												height="100"
 											/>
 										)}
 									</div>
 									<p class="meta-desc">{description}</p>
-								</div>								
+								</div>	
+								<p class="meta"><Date date={getDate(cfg, page)!} locale={cfg.locale} /></p>
+							
 							</div>
 							<ul class="tags">
 								{tags.map((tag) => (
@@ -108,5 +106,21 @@ PageList.css = `
 
 .section > .tags {
   margin: 0;
+}
+
+.section {
+	border: 1px solid var(--lightgray);
+	border-radius: 5px;
+	padding: 1rem;
+	position: relative;
+	transition: left 0.3s ease;
+	left: 0;
+}
+
+.section:hover {
+	background-color: var(--lightgray);
+	position: relative;
+	left: -15px !important;
+	transition: left 0.3s ease;
 }
 `;
