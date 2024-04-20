@@ -41,10 +41,10 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
 	return (
 		<ul class="section-ul">
 			{list.map((page) => {
-				let title = page.frontmatter?.title;
+				let title = page.frontmatter?.title ?? page.slug;
 				if (title === "index") {
 					const path = page.slug?.split("/");
-					title = path?.[path.length - 2].replace("-", " ") ?? "index";
+					title = path?.[path.length - 2].replaceAll("-", " ") ?? "index";
 				}
 				const tags = page.frontmatter?.tags ?? [];
 				const description = page.frontmatter?.description;
@@ -58,7 +58,6 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit }: Pr
 				return (
 					<li class="section-li">
 						<div class="section">
-							
 							<div class="desc">
 								<h3>
 									<a href={resolveRelative(fileData.slug!, page.slug!)} class="internal">

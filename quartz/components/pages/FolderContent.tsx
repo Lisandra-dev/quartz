@@ -42,13 +42,14 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
 		const content =
 			(tree as Root).children.length === 0
-				? fileData.description
+				? undefined
 				: htmlToJsx(fileData.filePath!, tree);
-
+		const descFontmatter = fileData.frontmatter?.description;		
+		const descContent = descFontmatter ? descFontmatter : content;
 		return (
 			<div class={classNames(undefined, "popover-hint", ...cssClasses)}>
 				<article>
-					<p>{content}</p>
+					<p>{descContent}</p>
 				</article>
 				{(!content || content?.props?.children?.length === 0) && (
 					<div class="page-listing">

@@ -5,7 +5,11 @@ import { QuartzComponentConstructor, QuartzComponentProps } from "./types";
 export default ((opts?: Partial<IconFolderOptions>) => {
 	function ArticleTitle(props: QuartzComponentProps) {
 		const { displayClass, fileData } = props;
-		const title = fileData.frontmatter?.title;
+		let title = fileData.frontmatter?.title ?? fileData.slug;
+		if (title === "index") {
+			const path = fileData.slug?.split("/");
+			title = path?.[path.length - 2].replaceAll("-", " ") ?? "index";
+		}
 		const iconType = (fileData.frontmatter?.icon as string) || opts?.default?.file;
 		if (title) {
 			if (!opts?.rootIconFolder || !iconType) {
