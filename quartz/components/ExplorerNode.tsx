@@ -232,7 +232,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
                 </svg>
               ) : null}
               {/* render <a> tag if folderBehavior is "link", otherwise render <button> with collapse click event */}
-              <div key={node.name} data-folderpath={folderPath}>
+              <div key={node.name} data-folderpath={folderPath} data-isroot={isRoot}>
                 {folderBehavior === "link" ? (
                   <a
                     href={resolveRelative(fileData.slug!, folderPath as SimpleSlug)}

@@ -67,7 +67,6 @@ button#explorer {
       color: var(--dark);
       opacity: 0.75;
       pointer-events: all;
-      font-size: 1.2rem;
     }
   }
 }
@@ -86,12 +85,19 @@ svg {
   align-items: center;
   user-select: none;
 
+  & a.folder-title[data-isroot="true"] {
+    font-size: 1.1rem;
+  }
+
   & div > a {
     color: var(--secondary);
     font-family: var(--headerFont);
     font-weight: $semiBoldWeight;
     line-height: 1.5rem;
     display: inline-block;
+    &.folder-title {
+      font-size: 0.9rem;
+    }
   }
 
   & div > a:hover {
@@ -134,6 +140,9 @@ svg {
     position: relative;
     width: 1em;
     z-index: 99;
+  }
+  &[data-hasicon="true"][data-isroot="true"] {
+    left: 1.3rem;
   }
 }
 
@@ -190,11 +199,16 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
 //   margin-left: -1.5rem;
 // }
 
-.folder-container[data-haschildren="true"]
-  .folder-title[data-hasicon="true"]:not([data-isroot="true"]) {
-  margin-left: -1.5rem;
-}
-
-.folder-container[data-haschildren="false"] {
-  margin-left: -0.2rem;
+.folder-container {
+  &[data-haschildren="true"] {
+    .folder-title[data-hasicon="true"]:not([data-isroot="true"]) {
+      margin-left: -1.5rem;
+    }
+    &:has(.folder-title[data-hasicon="false"][data-isroot="false"]) {
+      margin-left: -0.2rem;
+    }
+  }
+  &[data-haschildren="false"] {
+    margin-left: -0.2rem;
+  }
 }
