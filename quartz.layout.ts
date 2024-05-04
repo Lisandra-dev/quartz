@@ -70,8 +70,4 @@ export const defaultContentPageLayout: PageLayout = {
 };
 
 // components for pages that display lists of pages  (e.g. tags or folders)
-export const defaultListPageLayout: PageLayout = {
-	beforeBody: defaultContentPageLayout.beforeBody,
-	left: defaultContentPageLayout.left,
-	right: [],
-};
+export const defaultListPageLayout: PageLayout = defaultContentPageLayout;
