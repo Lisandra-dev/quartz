@@ -1,6 +1,9 @@
 group:
   - files:
-      - quartz/
+      - source: quartz/
+        dest: quartz/
+        exclude: |
+          static/
       - package.json
       - package-lock.json
       - source: .github/workflows/
