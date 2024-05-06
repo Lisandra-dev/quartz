@@ -123,3 +123,7 @@ ul.overflow:after,
 ol.overflow:after {
   background: none;
 }
+
+#explorer-content ul li > a[data-hasicon="true"][data-isroot="true"]:has(.file-title-icon) {
+  left: -0.15em;
+}
