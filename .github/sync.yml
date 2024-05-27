@@ -12,5 +12,5 @@ group:
           sync_file.yml
           ci.yaml
     repos: |
-      ObsidianPublisher/Publisher-Quartz
-      ObsidianPublisher/docs
+      Enveloppe/Enveloppe-Quartz
+      Enveloppe/enveloppe.github.io
