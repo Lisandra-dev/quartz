@@ -26,9 +26,14 @@ jobs:
           token: ${{ secrets.GH_PAT }}
           fetch-depth: 0 # Fetch all history for git info
           submodules: "recursive"
+      - name: install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
       - uses: actions/setup-node@v4
         with:
           node-version: 18.14
+          cache: 'pnpm'
       - name: Fetch submodules
         continue-on-error: true
         run: |
@@ -38,7 +43,7 @@ jobs:
           git commit -am "chore (update): fetch submodule"
           git push
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact
