@@ -174,7 +174,7 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
 
 #explorer-content ul li > a[data-hasicon="true"]:has(.file-title-icon) {
   position: relative;
-  left: -0.25em;
+  left: 1.2em;
 }
 
 .folder-title-icon > svg {
@@ -202,10 +202,10 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
 .folder-container {
   &[data-haschildren="true"] {
     .folder-title[data-hasicon="true"]:not([data-isroot="true"]) {
-      margin-left: -1.5rem;
+      margin-left: -1.2rem;
     }
     &:has(.folder-title[data-hasicon="false"][data-isroot="false"]) {
-      margin-left: -0.2rem;
+      margin-left: 1.2rem;
     }
   }
   &[data-haschildren="false"] {
