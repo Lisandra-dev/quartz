@@ -213,8 +213,8 @@ a {
     width: $pageWidth;
     @media all and (max-width: $fullPageWidth) {
       width: initial;
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: 1rem;
+      margin-right: 1rem;
     }
   }
 }

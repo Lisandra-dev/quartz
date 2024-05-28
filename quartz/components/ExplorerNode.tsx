@@ -190,6 +190,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
   const { iconAsSVG, hasIcon, iconPath } = getIconForNodes(node, opts.iconSettings)
   const dataForSanitized = sanitizeText(node.file?.slug ?? node.name)
   const isRoot = folderPath.split("/").length === 1
+  const padding = 1 + folderPath.split("/").length >= 3 ? 1 : 1 + folderPath.split("/").length / 2
   return (
     <>
       {node.file ? (
@@ -258,7 +259,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
             <ul
               // Inline style for left folder paddings
               style={{
-                paddingLeft: node.name !== "" ? "0.8rem" : "0",
+                paddingLeft: node.name !== "" ? `${padding}rem` : "0",
               }}
               class="content"
               data-folderul={folderPath}

@@ -18,9 +18,9 @@ ol.overflow {
 
 .page .page-header {
   padding: 1px;
-  width: 48.5dvw;
+  width: auto;
   margin-left: -4dvw;
-  margin-right: -1dvw;
+  margin-right: 0;
 }
 
 @media all and (max-width: $fullPageWidth) {
