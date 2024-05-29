@@ -33,7 +33,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.14
-          cache: 'pnpm'
+          cache: "pnpm"
       - name: Fetch submodules
         continue-on-error: true
         run: |
@@ -43,7 +43,7 @@ jobs:
           git commit -am "chore (update): fetch submodule"
           git push
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact
