@@ -90,7 +90,7 @@
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.1",
     "workerpool": "^9.1.1",
-    "ws": "^8.15.1",
+    "ws": "^8.17.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
@@ -106,7 +106,7 @@
     "@types/yargs": "^17.0.32",
     "esbuild": "^0.19.9",
     "prettier": "^3.2.4",
-    "tsx": "^4.9.3",
+    "tsx": "^4.11.0",
     "typescript": "^5.4.5"
   }
 }
