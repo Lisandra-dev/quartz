@@ -262,6 +262,7 @@ body {
   border: 0;
   margin: 0;
   box-shadow: none;
+  width: $pageWidth;
 
   & {
     display: block;
@@ -276,15 +277,16 @@ body {
 
     p:not(.callout-title) {
       display: grid;
-      grid-template-columns: repeat(2, minmax(19vw, 1fr));
+      grid-template-columns: 2fr;
       grid-template-rows: repeat(1, 1fr);
       grid-gap: 15px;
     }
 
     img {
       padding: 1px;
-      margin:0;
-      
+      margin: 0;
+      grid-row: x / span y;
+
       &:hover {
         transform: scaleX(2) scaleY(2);
       }
