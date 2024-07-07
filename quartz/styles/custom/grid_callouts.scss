@@ -124,7 +124,7 @@ body {
   margin: 0;
   margin: 0 8px;
   width: 30vh;
-  float: left;
+  float: right;
   padding: 1px;
   border: 1px solid var(--table, var(--background-modifier-border));
   border-radius: var(--radius, var(--co-radius));
@@ -177,8 +177,8 @@ body {
     }
   }
 
-  .wiki-right & {
-    float: right;
+  .wiki-left & {
+    float: left;
   }
 
   .is-collapsed {
