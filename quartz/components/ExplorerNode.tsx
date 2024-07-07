@@ -191,6 +191,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
   const dataForSanitized = sanitizeText(node.file?.slug ?? node.name)
   const isRoot = folderPath.split("/").length === 1
   const padding = 1 + folderPath.split("/").length >= 3 ? 0.5 : 1 + folderPath.split("/").length / 2
+  const href = resolveRelative(fileData.slug!, folderPath as SimpleSlug) + "/"
   return (
     <>
       {node.file ? (
@@ -236,7 +237,7 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
               <div key={node.name} data-folderpath={folderPath} data-isroot={isRoot}>
                 {folderBehavior === "link" ? (
                   <a
-                    href={resolveRelative(fileData.slug!, folderPath as SimpleSlug)}
+                    href={href}
                     data-for={dataForSanitized}
                     data-hasicon={hasIcon}
                     data-icon={iconPath}
