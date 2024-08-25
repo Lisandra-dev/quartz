@@ -371,15 +371,14 @@ body {
   }
 
   table {
-    th {
-      background-color: var(--aside-bg, rgba(var(--callout-color), 0.5));
-    }
-
     --tbl-td-h: 0;
     --tbl-td-w: 5px;
     white-space: nowrap;
     margin: 0;
     width: 100%;
+    th {
+      background-color: var(--aside-bg, rgba(var(--callout-color), 0.5));
+    }
   }
 
   p:last-child {
@@ -400,7 +399,9 @@ body {
     border: 0;
     text-align: center;
     padding: 0;
-
+    padding: 0px;
+    margin: auto;
+    overflow-y: hidden;
     &.is-collapsible:not(.is-collapsed) {
       display: flex;
       flex-direction: row-reverse;
@@ -423,10 +424,6 @@ body {
         }
       }
     }
-
-    padding: 0px;
-    margin: auto;
-    overflow-y: hidden;
 
     &:is([data-callout-metadata~="tbl-cln"], [data-callout-metadata~="table-clean"]) {
       table :is(td, tr, th) {

@@ -9,13 +9,19 @@ import { options } from "./util/sourcemap";
 sourceMapSupport.install(options);
 
 // only called from worker thread
-export async function parseFiles(argv: Argv, fps: FilePath[], allSlugs: FullSlug[]) {
-	const ctx: BuildCtx = {
-		cfg,
-		argv,
-		allSlugs,
-	};
-	const processor = createProcessor(ctx);
-	const parse = createFileParser(ctx, fps);
-	return parse(processor);
+export async function parseFiles(
+  buildId: string,
+  argv: Argv,
+  fps: FilePath[],
+  allSlugs: FullSlug[],
+) {
+  const ctx: BuildCtx = {
+    buildId,
+    cfg,
+    argv,
+    allSlugs,
+  }
+  const processor = createProcessor(ctx)
+  const parse = createFileParser(ctx, fps)
+  return parse(processor)
 }

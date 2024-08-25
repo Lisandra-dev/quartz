@@ -40,8 +40,13 @@ type BuildData = {
 
 type FileEvent = "add" | "change" | "delete"
 
+function newBuildId() {
+  return new Date().toISOString()
+}
+
 async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
 	const ctx: BuildCtx = {
+		buildId: newBuildId(),
 		argv,
 		cfg,
 		allSlugs: [],
@@ -167,8 +172,9 @@ async function partialRebuildFromEntrypoint(
 		return;
 	}
 
-	const perf = new PerfTimer();
-	console.log(chalk.yellow("Detected change, rebuilding..."));
+  const perf = new PerfTimer()
+  console.log(chalk.yellow("Detected change, rebuilding..."))
+  ctx.buildId = newBuildId()
 
 	// UPDATE DEP GRAPH
 	const fp = joinSegments(argv.directory, toPosixPath(filepath)) as FilePath;
@@ -363,21 +369,17 @@ async function rebuildFromEntrypoint(
 		return;
 	}
 
-	const perf = new PerfTimer();
-	console.log(chalk.yellow("Detected change, rebuilding..."));
-	try {
-		const filesToRebuild = [...toRebuild].filter((fp) => !toRemove.has(fp));
+  const perf = new PerfTimer()
+  console.log(chalk.yellow("Detected change, rebuilding..."))
+  ctx.buildId = newBuildId()
 
-		const trackedSlugs = [...new Set([...contentMap.keys(), ...toRebuild, ...trackedAssets])]
-			.filter((fp) => !toRemove.has(fp))
-			.map((fp) => slugifyFilePath(path.posix.relative(argv.directory, fp) as FilePath));
-
-		ctx.allSlugs = [...new Set([...initialSlugs, ...trackedSlugs])];
-		const parsedContent = await parseMarkdown(ctx, filesToRebuild);
-		for (const content of parsedContent) {
-			const [_tree, vfile] = content;
-			contentMap.set(vfile.data.filePath!, content);
-		}
+  try {
+    const filesToRebuild = [...toRebuild].filter((fp) => !toRemove.has(fp))
+    const parsedContent = await parseMarkdown(ctx, filesToRebuild)
+    for (const content of parsedContent) {
+      const [_tree, vfile] = content
+      contentMap.set(vfile.data.filePath!, content)
+    }
 
 		for (const fp of toRemove) {
 			contentMap.delete(fp);
@@ -386,17 +388,24 @@ async function rebuildFromEntrypoint(
 		const parsedFiles = [...contentMap.values()];
 		const filteredContent = filterContent(ctx, parsedFiles);
 
-		// TODO: we can probably traverse the link graph to figure out what's safe to delete here
-		// instead of just deleting everything
-		await rimraf(path.join(argv.output, ".*"), { glob: true });
-		await emitContent(ctx, filteredContent);
-		console.log(chalk.green(`Done rebuilding in ${perf.timeSince()}`));
-	} catch (err) {
-		console.log(chalk.yellow("Rebuild failed. Waiting on a change to fix the error..."));
-		if (argv.verbose) {
-			console.log(chalk.red(err));
-		}
-	}
+    // re-update slugs
+    const trackedSlugs = [...new Set([...contentMap.keys(), ...toRebuild, ...trackedAssets])]
+      .filter((fp) => !toRemove.has(fp))
+      .map((fp) => slugifyFilePath(path.posix.relative(argv.directory, fp) as FilePath))
+
+    ctx.allSlugs = [...new Set([...initialSlugs, ...trackedSlugs])]
+
+    // TODO: we can probably traverse the link graph to figure out what's safe to delete here
+    // instead of just deleting everything
+    await rimraf(path.join(argv.output, ".*"), { glob: true })
+    await emitContent(ctx, filteredContent)
+    console.log(chalk.green(`Done rebuilding in ${perf.timeSince()}`))
+  } catch (err) {
+    console.log(chalk.yellow(`Rebuild failed. Waiting on a change to fix the error...`))
+    if (argv.verbose) {
+      console.log(chalk.red(err))
+    }
+  }
 
 	release();
 	clientRefresh();

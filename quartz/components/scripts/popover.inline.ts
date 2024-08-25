@@ -4,8 +4,8 @@ import { normalizeRelativeURLs } from "../../util/path";
 
 const p = new DOMParser();
 async function mouseEnterHandler(
-	this: HTMLLinkElement,
-	{ clientX, clientY }: { clientX: number; clientY: number },
+  this: HTMLAnchorElement,
+  { clientX, clientY }: { clientX: number; clientY: number },
 ) {
 	const link = this;
 	if (link.dataset.noPopover === "true") {
@@ -30,13 +30,13 @@ async function mouseEnterHandler(
 		return setPosition(link.lastChild as HTMLElement);
 	}
 
-	const thisUrl = new URL(document.location.href);
-	thisUrl.hash = "";
-	thisUrl.search = "";
-	const targetUrl = new URL(link.href);
-	const hash = targetUrl.hash;
-	targetUrl.hash = "";
-	targetUrl.search = "";
+  const thisUrl = new URL(document.location.href)
+  thisUrl.hash = ""
+  thisUrl.search = ""
+  const targetUrl = new URL(link.href)
+  const hash = decodeURIComponent(targetUrl.hash)
+  targetUrl.hash = ""
+  targetUrl.search = ""
 
 	const response = await fetch(`${targetUrl}`).catch((err) => {
 		console.error(err);
@@ -101,9 +101,9 @@ async function mouseEnterHandler(
 }
 
 document.addEventListener("nav", () => {
-	const links = [...document.getElementsByClassName("internal")] as HTMLLinkElement[];
-	for (const link of links) {
-		link.addEventListener("mouseenter", mouseEnterHandler);
-		window.addCleanup(() => link.removeEventListener("mouseenter", mouseEnterHandler));
-	}
-});
+  const links = [...document.getElementsByClassName("internal")] as HTMLAnchorElement[]
+  for (const link of links) {
+    link.addEventListener("mouseenter", mouseEnterHandler)
+    window.addCleanup(() => link.removeEventListener("mouseenter", mouseEnterHandler))
+  }
+})

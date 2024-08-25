@@ -19,16 +19,16 @@ const urlRegex = new RegExp(
 	"g",
 );
 
-export const Description: QuartzTransformerPlugin<Partial<Options> | undefined> = (userOpts) => {
-	const opts = { ...defaultOptions, ...userOpts };
-	return {
-		name: "Description",
-		htmlPlugins() {
-			return [
-				() => {
-					return async (tree: HTMLRoot, file) => {
-						let frontMatterDescription = file.data.frontmatter?.description;
-						let text = escapeHTML(toString(tree));
+export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
+  const opts = { ...defaultOptions, ...userOpts }
+  return {
+    name: "Description",
+    htmlPlugins() {
+      return [
+        () => {
+          return async (tree: HTMLRoot, file) => {
+            let frontMatterDescription = file.data.frontmatter?.description
+            let text = escapeHTML(toString(tree))
 
 						if (opts.replaceExternalLinks) {
 							frontMatterDescription = frontMatterDescription?.replace(

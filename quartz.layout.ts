@@ -16,6 +16,7 @@ export const secretPage: Set<string> =  new Set(["hidden"])
 
 export const sharedPageComponents: SharedLayout = {
 	head: Component.Head(),
+	afterBody: [],
 	header: [
 		Component.MobileOnly(
 			Component.ExplorerBurger({

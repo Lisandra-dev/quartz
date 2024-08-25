@@ -5,7 +5,7 @@ import { i18n } from "../../i18n"
 import { htmlToJsx } from "../../util/jsx"
 import { classNames } from "../../util/lang"
 import { simplifySlug, stripSlashes } from "../../util/path"
-import { PageList } from "../PageList"
+import { PageList, SortFn } from "../PageList"
 import style from "../styles/listPage.scss"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "../types"
 
@@ -14,6 +14,7 @@ interface FolderContentOptions {
    * Whether to display number of folders
    */
   showFolderCount: boolean
+  sort?: SortFn
 }
 
 const defaultOptions: FolderContentOptions = {
@@ -37,6 +38,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const listProps = {
       ...props,
+      sort: options.sort,
       allFiles: allPagesInFolder,
     }
 
