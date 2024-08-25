@@ -10,6 +10,10 @@
   transition: max-height 0.3s ease;
   box-sizing: border-box;
 
+  &.spoiler {
+    display: none;
+  }
+
   & > .callout-content > :first-child {
     margin-top: 0;
   }
