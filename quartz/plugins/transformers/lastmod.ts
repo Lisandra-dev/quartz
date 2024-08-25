@@ -28,20 +28,18 @@ function coerceDate(fp: string, d: any): Date {
 }
 
 type MaybeDate = undefined | string | number
-export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options> | undefined> = (
-	userOpts,
-) => {
-	const opts = { ...defaultOptions, ...userOpts };
-	return {
-		name: "CreatedModifiedDate",
-		markdownPlugins() {
-			return [
-				() => {
-					let repo: Repository | undefined = undefined;
-					return async (_tree, file) => {
-						let created: MaybeDate = undefined;
-						let modified: MaybeDate = undefined;
-						let published: MaybeDate = undefined;
+export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
+  const opts = { ...defaultOptions, ...userOpts }
+  return {
+    name: "CreatedModifiedDate",
+    markdownPlugins() {
+      return [
+        () => {
+          let repo: Repository | undefined = undefined
+          return async (_tree, file) => {
+            let created: MaybeDate = undefined
+            let modified: MaybeDate = undefined
+            let published: MaybeDate = undefined
 
 						const fp = file.data.filePath!;
 						const fullFp = path.isAbsolute(fp) ? fp : path.posix.join(file.cwd, fp);

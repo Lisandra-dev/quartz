@@ -142,10 +142,10 @@ export async function parseMarkdown(ctx: BuildCtx, fps: FilePath[]): Promise<Pro
 			workerType: "thread",
 		});
 
-		const childPromises: WorkerPromise<ProcessedContent[]>[] = [];
-		for (const chunk of chunks(fps, CHUNK_SIZE)) {
-			childPromises.push(pool.exec("parseFiles", [argv, chunk, ctx.allSlugs]));
-		}
+    const childPromises: WorkerPromise<ProcessedContent[]>[] = []
+    for (const chunk of chunks(fps, CHUNK_SIZE)) {
+      childPromises.push(pool.exec("parseFiles", [ctx.buildId, argv, chunk, ctx.allSlugs]))
+    }
 
 		const results: ProcessedContent[][] = await WorkerPromise.all(childPromises).catch((err) => {
 			const errString = err.toString().slice("Error:".length);

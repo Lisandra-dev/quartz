@@ -41,22 +41,22 @@ function coerceToArray(input: string | string[]): string[] | undefined {
 		.map((tag: string | number) => tag.toString());
 }
 
-export const FrontMatter: QuartzTransformerPlugin<Partial<Options> | undefined> = (userOpts) => {
-	const opts = { ...defaultOptions, ...userOpts };
-	return {
-		name: "FrontMatter",
-		markdownPlugins({ cfg }) {
-			return [
-				[remarkFrontmatter, ["yaml", "toml"]],
-				() => {
-					return (_, file) => {
-						const { data } = matter(Buffer.from(file.value), {
-							...opts,
-							engines: {
-								yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
-								toml: (s) => toml.parse(s) as object,
-							},
-						});
+export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
+  const opts = { ...defaultOptions, ...userOpts }
+  return {
+    name: "FrontMatter",
+    markdownPlugins({ cfg }) {
+      return [
+        [remarkFrontmatter, ["yaml", "toml"]],
+        () => {
+          return (_, file) => {
+            const { data } = matter(Buffer.from(file.value), {
+              ...opts,
+              engines: {
+                yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) as object,
+                toml: (s) => toml.parse(s) as object,
+              },
+            })
 
 						if (data.title != null && data.title.toString() !== "") {
 							data.title = data.title.toString();

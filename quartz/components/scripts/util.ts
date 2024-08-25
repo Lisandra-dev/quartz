@@ -4,12 +4,13 @@ import { GlobalConfiguration } from "../../cfg";
 import { sluggify } from "../../util/path";
 
 export function registerEscapeHandler(outsideContainer: HTMLElement | null, cb: () => void) {
-	if (!outsideContainer) return;
-	function click(this: HTMLElement, e: HTMLElementEventMap["click"]) {
-		if (e.target !== this) return;
-		e.preventDefault();
-		cb();
-	}
+  if (!outsideContainer) return
+  function click(this: HTMLElement, e: HTMLElementEventMap["click"]) {
+    if (e.target !== this) return
+    e.preventDefault()
+    e.stopPropagation()
+    cb()
+  }
 
 	function esc(e: HTMLElementEventMap["keydown"]) {
 		if (!e.key.startsWith("Esc")) return;

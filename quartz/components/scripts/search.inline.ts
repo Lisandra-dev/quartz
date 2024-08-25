@@ -145,14 +145,14 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
 }
 
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
-	const currentSlug = e.detail.url;
-	const data = await fetchData;
-	const container = document.getElementById("search-container");
-	const sidebar = container?.closest(".sidebar") as HTMLElement;
-	const searchIcon = document.getElementById("search-icon");
-	const searchBar = document.getElementById("search-bar") as HTMLInputElement | null;
-	const searchLayout = document.getElementById("search-layout");
-	const idDataMap = Object.keys(data) as FullSlug[];
+  const currentSlug = e.detail.url
+  const data = await fetchData
+  const container = document.getElementById("search-container")
+  const sidebar = container?.closest(".sidebar") as HTMLElement
+  const searchButton = document.getElementById("search-button")
+  const searchBar = document.getElementById("search-bar") as HTMLInputElement | null
+  const searchLayout = document.getElementById("search-layout")
+  const idDataMap = Object.keys(data) as FullSlug[]
 
 	const appendLayout = (el: HTMLElement) => {
 		if (searchLayout?.querySelector(`#${el.id}`) === null) {
@@ -191,8 +191,10 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 			searchLayout.classList.remove("display-results");
 		}
 
-		searchType = "basic"; // reset search type after closing
-	}
+    searchType = "basic" // reset search type after closing
+
+    searchButton?.focus()
+  }
 
 	function showSearch(searchTypeNew: SearchType) {
 		searchType = searchTypeNew;
@@ -435,12 +437,12 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
 		await displayResults(finalResults);
 	}
 
-	document.addEventListener("keydown", shortcutHandler);
-	window.addCleanup(() => document.removeEventListener("keydown", shortcutHandler));
-	searchIcon?.addEventListener("click", () => showSearch("basic"));
-	window.addCleanup(() => searchIcon?.removeEventListener("click", () => showSearch("basic")));
-	searchBar?.addEventListener("input", onType);
-	window.addCleanup(() => searchBar?.removeEventListener("input", onType));
+  document.addEventListener("keydown", shortcutHandler)
+  window.addCleanup(() => document.removeEventListener("keydown", shortcutHandler))
+  searchButton?.addEventListener("click", () => showSearch("basic"))
+  window.addCleanup(() => searchButton?.removeEventListener("click", () => showSearch("basic")))
+  searchBar?.addEventListener("input", onType)
+  window.addCleanup(() => searchBar?.removeEventListener("input", onType))
 
 	registerEscapeHandler(container, hideSearch);
 	await fillDocument(data);

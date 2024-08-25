@@ -33,7 +33,7 @@ const defaultOptions: Options = {
   externalLinkIcon: true,
 }
 
-export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> = (userOpts) => {
+export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   return {
     name: 'LinkProcessing',
@@ -66,8 +66,9 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                     type: 'element',
                     tagName: 'svg',
                     properties: {
-                      class: 'external-icon',
-                      viewBox: '0 0 512 512',
+                      "aria-hidden": "true",
+                      class: "external-icon",
+                      viewBox: "0 0 512 512",
                     },
                     children: [
                       {
