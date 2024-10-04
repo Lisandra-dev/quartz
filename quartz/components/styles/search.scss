@@ -106,7 +106,7 @@
           flex: 0 0 min(30%, 450px);
         }
 
-        @media all and not ($tablet) {
+        @media all and (not ($tablet)) {
           &[data-preview] {
             & .result-card > p.preview {
               display: none;

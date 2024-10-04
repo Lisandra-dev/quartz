@@ -5,7 +5,7 @@
   flex-direction: column;
   overflow-y: hidden;
   &.desktop-only {
-    @media all and (not $mobile) {
+    @media all and (not ($mobile)) {
       display: flex;
     }
   }

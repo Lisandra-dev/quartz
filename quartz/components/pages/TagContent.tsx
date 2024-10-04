@@ -19,21 +19,21 @@ const defaultOptions: TagContentOptions = {
 
 export default ((opts?: Partial<TagContentOptions>) => {
   const options: TagContentOptions = { ...defaultOptions, ...opts }
-
+  
   const TagContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
     const slug = fileData.slug
-
+    
     if (!(slug?.startsWith("tags/") || slug === "tags")) {
       throw new Error(`Component "TagContent" tried to render a non-tag page: ${slug}`)
     }
-
+    
     const tag = simplifySlug(slug.slice("tags/".length) as FullSlug)
     const allPagesWithTag = (tag: string) =>
       allFiles.filter((file) =>
         (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes).includes(tag),
       )
-
+    
     const content =
       (tree as Root).children.length === 0
         ? fileData.description
@@ -62,15 +62,15 @@ export default ((opts?: Partial<TagContentOptions>) => {
                 ...props,
                 allFiles: pages,
               }
-
+              
               const contentPage = allFiles.filter((file) => file.slug === `tags/${tag}`).at(0)
-
+              
               const root = contentPage?.htmlAst
               const content =
                 !root || root?.children.length === 0
                   ? contentPage?.description
                   : htmlToJsx(contentPage.filePath!, root)
-
+              
               return (
                 <div>
                   <h2>
@@ -107,7 +107,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
         ...props,
         allFiles: pages,
       }
-
+      
       return (
         <div class={classNames(undefined, "popover-hint", ...cssClasses)}>
           <article>{content}</article>
@@ -120,7 +120,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
         </div>
       )
     }
-  }
+  };
 
   TagContent.css = style + PageList.css
   return TagContent
