@@ -183,10 +183,8 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
   const isDefaultOpen = opts.folderDefaultState === "open"
 
   // Calculate current folderPath
-  let folderPath = ""
-  if (node.name !== "") {
-    folderPath = joinSegments(fullPath ?? "", node.name)
-  }
+  const folderPath = node.name !== "" ? joinSegments(fullPath ?? "", node.name) : ""
+  const href = resolveRelative(fileData.slug!, folderPath as SimpleSlug) + "/"
   const { iconAsSVG, hasIcon, iconPath } = getIconForNodes(node, opts.iconSettings)
   const dataForSanitized = sanitizeText(node.file?.slug ?? node.name)
   return (
@@ -229,13 +227,9 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
               {/* render <a> tag if folderBehavior is "link", otherwise render <button> with collapse click event */}
               <div key={node.name} data-folderpath={folderPath}>
                 {folderBehavior === "link" ? (
-                  <a
-                    href={resolveRelative(fileData.slug!, folderPath as SimpleSlug)}
-                    data-for={dataForSanitized}
+                  <a href={href} data-for={dataForSanitized}
                     data-hasicon={hasIcon}
-                    data-icon={iconPath}
-                    class="folder-title"
-                  >
+                    data-icon={iconPath} class="folder-title">
                     {node.displayName}
                   </a>
                 ) : (
