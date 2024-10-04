@@ -15,8 +15,8 @@ export type QuartzComponentProps = {
   allFiles: QuartzPluginData[]
   displayClass?: "mobile-only" | "desktop-only"
 } & JSX.IntrinsicAttributes & {
-  [key: string]: any
-}
+    [key: string]: any
+  }
 
 export type QuartzComponent = ComponentType<QuartzComponentProps> & {
   css?: string
@@ -27,4 +27,3 @@ export type QuartzComponent = ComponentType<QuartzComponentProps> & {
 export type QuartzComponentConstructor<Options extends object | undefined = undefined> = (
   opts: Options,
 ) => QuartzComponent
-

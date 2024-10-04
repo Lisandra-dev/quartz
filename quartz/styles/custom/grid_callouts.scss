@@ -165,9 +165,8 @@ body {
 
   img {
     margin: auto;
-    padding: auto;
     text-align: center;
-    border-radius: 0% !important;
+    border-radius: 0 !important;
   }
 
   &[data-callout-metadata~="left"] {
@@ -213,7 +212,7 @@ body {
       border: 0;
     }
   }
-  @media all and (max-width: $mobileBreakpoint) {
+  @media all and ($mobile) {
     width: 100% !important;
     float: none !important;
     display: block !important;

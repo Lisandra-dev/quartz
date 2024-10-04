@@ -30,13 +30,13 @@ ol.overflow {
   }
 }
 
-@media all and (max-width: $mobileBreakpoint) {
+@media all and ($mobile) {
   .page .page-header {
     width: 96dvw;
   }
 }
 
-@media all and (min-width: $tabletBreakpoint) {
+@media all and ($tablet) {
   .page-title.mobile-only a {
     font-size: 2.5vw;
     vertical-align: middle;

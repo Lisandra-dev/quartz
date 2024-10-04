@@ -50,7 +50,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
         tagItemMap.set(tag, allPagesWithTag(tag))
       }
       return (
-      <div class={classNames(undefined, "popover-hint", ...cssClasses)}>
+        <div class={classNames(undefined, "popover-hint", ...cssClasses)}>
           <article>
             <p>{content}</p>
           </article>
@@ -109,7 +109,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
       }
 
       return (
-      <div class={classNames(undefined, "popover-hint", ...cssClasses)}>
+        <div class={classNames(undefined, "popover-hint", ...cssClasses)}>
           <article>{content}</article>
           <div class="page-listing">
             <p>{i18n(cfg.locale).pages.tagContent.itemsUnderTag({ count: pages.length })}</p>

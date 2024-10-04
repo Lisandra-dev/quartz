@@ -71,10 +71,10 @@ button#explorer {
   max-height: 100%;
   :not(.explorer-burger-menu) & {
     transition:
-    max-height 0.35s ease,
-    visibility 0s linear 0s;
+      max-height 0.35s ease,
+      visibility 0s linear 0s;
     margin-top: 0.5rem;
-  visibility: visible;
+    visibility: visible;
   }
 
   &.collapsed {

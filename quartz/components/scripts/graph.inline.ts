@@ -144,7 +144,7 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   }
 
   const nodes = [...neighbourhood].map((url) => {
-    const text = url.startsWith("tags/") ? "#" + url.substring(5) : (data.get(url)?.title ?? url)
+    const text = url.startsWith("tags/") ? "#" + url.substring(5) : data.get(url)?.title ?? url
     return {
       id: url,
       text,

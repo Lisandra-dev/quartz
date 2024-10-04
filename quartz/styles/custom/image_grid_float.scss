@@ -8,10 +8,9 @@ img {
     width: 20em;
     min-width: $minwidth;
     float: right;
-    margin: 0;
-    margin-left: $coremarg;
+    margin: 0 0 0 $coremarg;
 
-    @media screen and (max-width: $mobileBreakpoint) {
+    @media screen and ($mobile) {
       width: 12.5em;
     }
   }
